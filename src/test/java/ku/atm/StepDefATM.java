@@ -64,10 +64,16 @@ public class StepDefATM {
         atm.transfer(toId, amount);
     }
 
+    @When("I deposit {float} by CDM")
+    public void i_deposit_in_back(double amount){
+        atm.deposit(amount);
+    }
+
     @Then("customer id {int} account balance is {float}")
     public void customer_id_account_balance_is(int id, double balance) {
         assertEquals(balance,
                      bank.getCustomer(id).getAccount().getBalance());
     }
+
 
 }
